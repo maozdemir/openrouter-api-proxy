@@ -57,7 +57,7 @@ function logResponse(res, responseBody) {
     const logData = {
         type: 'response',
         statusCode: res.statusCode,
-        headers: sanitizeHeaders(res.getHeaders())
+        headers: sanitizeHeaders(res.headers || {})
     };
 
     if (process.env.LOG_BODIES === 'true' && responseBody) {
